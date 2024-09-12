@@ -1,0 +1,7 @@
+1. first get a list of subnets according to country using this command : curl https://stat.ripe.net/data/country-resource-list/data.json?resource=IR | grep -oP '\d+\.\d+\.\d+\.\d+/\d+' > iran_ips.txt
+
+2. next run this to extract all the ips of that subnet - sudo masscan -p80,443 --rate=10000 -iL iran_ips.txt --output-format json --output-filename output.json
+
+3.  then lastly use the scripts added to identify the private ip addresses of those isps accourding to ports.
+
+4. if yuo wish to scan the entire internet - use this  :  masscan 0.0.0.0/0 -p0-65535 -oX scan.xml
