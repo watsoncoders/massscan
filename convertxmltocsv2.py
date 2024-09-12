@@ -5,8 +5,11 @@ import csv
 tree = ET.parse('output.xml')
 root = tree.getroot()
 
-# Open a CSV file for writing
-with open('output.csv', mode='w', newline='') as file:
+# Define the path where the CSV file will be saved
+csv_file_path = '/path/to/your/directory/output.csv'  # Change this to the path you want
+
+# Open the CSV file for writing
+with open(csv_file_path, mode='w', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(['IP', 'Port', 'Protocol', 'Service'])
 
@@ -29,4 +32,4 @@ with open('output.csv', mode='w', newline='') as file:
             # Write data to the CSV
             writer.writerow([ip, portid, protocol, service])
 
-print("Conversion completed, results saved to 'output.csv'")
+print(f"Conversion completed, results saved to '{csv_file_path}'")
